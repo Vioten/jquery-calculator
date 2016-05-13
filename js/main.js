@@ -2,6 +2,7 @@
   var operator = "";
   var op1;
   var op2;
+  var hasOp = false;
   $('.buttons').on("click", 'span', function() {
     expression += $(this).text();
     var input = $(this).text();
@@ -15,8 +16,11 @@
     }
     else if (input === '+' || input === 'x' || input === '-' || input ===
       '\xF7') {
-      operator = input;
-      console.log(operator);
+      if (hasOp === false) {
+        operator = input;
+        console.log(operator);
+        hasOp = true;
+      }
     }
     $('#screen').text(expression);
     console.log(expression);
